@@ -14,44 +14,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.01
   subtype: kitchenchaos
-  lastShownTimestamp: 1773384005
+  lastShownTimestamp: 1773844976
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1773384005
+  checkedLastUpdateTimestamp: 1773844976
   lastQOTDResponse:
-    questionId: 281
-    questionText: 'What is the result of this code:
+    questionId: 282
+    questionText: 'If I do:
 
-      <p>int money = 2000000000;
-      // $2 billion</p>
+      <p>Instantiate(myPrefab, Input.mousePosition,
+      Quaternion.identity);</p>
 
-      <p>money += 1000000000; // Adding $1 billion</p>'
-    answerA: money == 3000000000
-    answerB: money == -1294967296
-    answerC: money == 0
+      <p>Will myPrefab be spawned under the mouse?</p>'
+    answerA: Yes
+    answerB: No
+    answerC: 
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1773384005
+  lastQotdTimestamp: 1773844976
   lastDynamicHeaderResponse:
-    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleMar26Audio.png
-    topText: Awesome HumbleBundle with thousands of SFX and Music, 99% OFF!
+    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleMar26Synty.png
+    topText: Synty Bundle! Awesome Low Poly Sci-Fi Assets and Anims!
     topLink: humblebundle
     bottomText: My 10+ Years of C# Knowledge in 1 Course!
     bottomLink: csharpcourse
-  lastDynamicHeaderTimestamp: 1773384005
+  lastDynamicHeaderTimestamp: 1773844976
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1773384005
+  websiteLatestMessageTimestamp: 1773844976
   websiteLatestVideos:
     videos:
+    - youTubeId: xvGRjPssGnw
+      title: Do NOT make this MISTAKE with your Games!
+    - youTubeId: a4JpMP-pM6k
+      title: TOP 10 NEW Games, Made with Unity! (FEBRUARY 2026)
     - youTubeId: 5VcshVc1a_k
       title: How To Make Diegetic 3D UI In Unity (EASY!)
     - youTubeId: nwW5UB_gBi8
       title: How to make a living from Indie Dev WITHOUT a Hit!
-    - youTubeId: _QrcgWsr2PI
-      title: What is the FUTURE of Unity in 2026?
-    - youTubeId: PZnS3TwucQg
-      title: The Biggest Indie MISTAKE! (and 7 other tips)
-  websiteLatestVideosTimestamp: 1773384005
+  websiteLatestVideosTimestamp: 1773844976
