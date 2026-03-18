@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cauldron
   counterTopPoint: {fileID: 4824345966223041104}
+  potionRecipes:
+  - {fileID: 11400000, guid: d5d5e4a48ded70a498a8ea82ca7c8bbe, type: 2}
 --- !u!4 &6914009059955244015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7261727669485127794, guid: f19ffdeb75764a14d84209b371325bd9, type: 3}

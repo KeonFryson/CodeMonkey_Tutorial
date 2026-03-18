@@ -1,44 +1,100 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Cauldron : BaseCounter
 {
-    public event Action OnCauldronCicked;
+    public event Action OnCauldronClicked;
+    public event Action<PotionRecipe> OnPotionCreated;
+
+    private const int MaxIngredients = 3;
+    private List<KitchenObjectSO> currentIngredients = new List<KitchenObjectSO>();
+
+    [SerializeField] private List<PotionRecipe> potionRecipes;
+    [SerializeField] private KitchenObjectSO emptyBottleSO; // Assign in Inspector
 
     public override void Interact(Player player)
     {
-        if (!HasKitchenObject())
+        if (player.HasKitchenObject())
         {
-            // There is no KitchenObject here 
-            if (player.HasKitchenObject())
+            KitchenObject playerObject = player.GetKitchenObject();
+            if (playerObject.GetKitchenObjectSO() == emptyBottleSO)
             {
-                // Player is carrying something
-               
+                // Try to finish potion if there are ingredients
+                if (currentIngredients.Count > 0)
+                {
+                    Debug.Log("[Cauldron] Player is holding an empty bottle. Attempting to finish potion...");
+                    PotionRecipe matchedRecipe = GetMatchingRecipe();
+                    if (matchedRecipe != null)
+                    {
+                        Debug.Log($"[Cauldron] Potion created: {matchedRecipe.result.name}");
+                        playerObject.DestroySelf();
+                        KitchenObject.SpawnKitchenObject(matchedRecipe.result, player);
+                        OnPotionCreated?.Invoke(matchedRecipe);
+                        ClearCauldron();
+                    }
+                    else
+                    {
+                        Debug.Log("[Cauldron] No valid recipe found for current ingredients. Potion not created.");
+                        ClearCauldron();
+                    }
+                }
+                else
+                {
+                    Debug.Log("[Cauldron] No ingredients in cauldron. Cannot finish potion.");
+                }
             }
             else
             {
-                // Player is not carrying anything
-
+                // Only add ingredient if not empty bottle and not full
+                if (currentIngredients.Count < MaxIngredients)
+                {
+                    Debug.Log($"[Cauldron] Adding ingredient: {playerObject.GetKitchenObjectSO().name}");
+                    AddIngredient(playerObject.GetKitchenObjectSO());
+                    playerObject.DestroySelf();
+                }
+                else
+                {
+                    Debug.Log("[Cauldron] Cannot add more ingredients. Cauldron is full.");
+                }
             }
         }
         else
         {
-            // There is a KitchenObject here
-            if (player.HasKitchenObject())
-            {
-                // Player is carrying something
-
-            }
-            else
-            {
-                // Player is not carrying anything
-                GetKitchenObject().SetKitchenObjectParent(player);
-            }
+            Debug.Log("[Cauldron] Player tried to interact with cauldron with empty hands. Nothing happens.");
         }
     }
 
+
     public override void InteractAlternate(Player player)
     {
-        OnCauldronCicked?.Invoke();
+        Debug.Log("[Cauldron] Alternate interaction triggered.");
+        OnCauldronClicked?.Invoke();
+    }
+
+    private void AddIngredient(KitchenObjectSO ingredient)
+    {
+        currentIngredients.Add(ingredient);
+        Debug.Log($"[Cauldron] Current ingredients count: {currentIngredients.Count}");
+    }
+
+    private PotionRecipe GetMatchingRecipe()
+    {
+        foreach (var recipe in potionRecipes)
+        {
+            if (recipe.Matches(currentIngredients))
+            {
+                Debug.Log($"[Cauldron] Matching recipe found: {recipe.result.name}");
+                return recipe;
+            }
+        }
+        Debug.Log("[Cauldron] No matching recipe found.");
+        return null;
+    }
+
+    private void ClearCauldron()
+    {
+        Debug.Log("[Cauldron] Clearing cauldron ingredients.");
+        currentIngredients.Clear();
     }
 }

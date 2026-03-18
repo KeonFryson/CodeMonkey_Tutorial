@@ -16,7 +16,7 @@ public class Stick_CircleAnimation : MonoBehaviour
     private bool isAnimating = false;
     private void Start()
     {
-        cauldron.OnCauldronCicked += StartCircleAnimation;
+        cauldron.OnCauldronClicked += StartCircleAnimation;
         originalPosition = transform.position;
         originalRotation = transform.rotation;
     }

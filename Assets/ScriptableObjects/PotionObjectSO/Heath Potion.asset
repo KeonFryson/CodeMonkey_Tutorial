@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae209c771defbef45b5738bdd8fd41ac, type: 3}
+  m_Name: Heath Potion
+  m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
+  ingredients:
+  - {fileID: 11400000, guid: f43bc188794a7944bbe6d2ead455aa38, type: 2}
+  - {fileID: 11400000, guid: e4c8501632046504ca18d01c331a313f, type: 2}
+  - {fileID: 11400000, guid: a3be1c3dc193b1c499136298002d1cc8, type: 2}
+  result: {fileID: 11400000, guid: 30e14a358db744b47b53ab4f183417d0, type: 2}
