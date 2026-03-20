@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 972068517436381377}
   - component: {fileID: 5589096125587891794}
   m_Layer: 0
-  m_Name: Luqid
+  m_Name: LiquidVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,3 +340,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad23460ed5bff3478491898f0db81b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stick_CircleAnimation
+  cauldron: {fileID: 0}
+  centerPoint: {fileID: 0}
+  baseSpeed: 2
+  maxSpeed: 10
+  speedIncrement: 2
+  radius: 3

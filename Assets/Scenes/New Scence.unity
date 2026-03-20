@@ -900,6 +900,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &852556266
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1333198370452424967, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 51ddeb6ddb3daf849a29374a23fe905e, type: 2}
+    - target: {fileID: 3847491581338073901, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847491581338073901, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847491581338073901, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518890402498211908, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c9d75e78391245ecbd0816fd92db6d7, type: 3}
+    - target: {fileID: 6966510225306598396, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.908
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966510225306598396, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0000005680804
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966510225306598396, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.348
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966510225306598396, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966510225306598396, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966510225306598396, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966510225306598396, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966510225306598396, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966510225306598396, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966510225306598396, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596983242162551965, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: m_Name
+      value: ContainerCounter
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
 --- !u!1001 &962529676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1917,6 +1994,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7059823089368847001, guid: 21cd0134951aad24fad14099e3d07e5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7642982951432449581, guid: 21cd0134951aad24fad14099e3d07e5c, type: 3}
       propertyPath: emptyBottleSO
       value: 
@@ -2047,3 +2128,4 @@ SceneRoots:
   - {fileID: 1580066082}
   - {fileID: 1710222542}
   - {fileID: 1040173363}
+  - {fileID: 852556266}

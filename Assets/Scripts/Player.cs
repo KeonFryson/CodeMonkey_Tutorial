@@ -112,6 +112,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         float playerRadius = 0.7f;
         float playerHeight = 2f;
         bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, targetDirection, moveDistance);
+        
 
         if (!canMove)
         {
