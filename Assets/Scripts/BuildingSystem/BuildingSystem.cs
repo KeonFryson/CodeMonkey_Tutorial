@@ -31,6 +31,9 @@ public class BuildingSystem : MonoBehaviour
     public Material validGhostMaterial;
     public Material invalidGhostMaterial;
 
+    [Tooltip("Layer assigned to buildings after placement so the ground raycast ignores them.\nCreate a layer called 'PlacedBuilding' and assign it here.")]
+    public LayerMask placedBuildingLayer;
+
     // ── State ──────────────────────────────────────────────────────────────
     private bool buildModeActive = false;
     private int selectedIndex = 0;
@@ -65,6 +68,30 @@ public class BuildingSystem : MonoBehaviour
         UpdateGhost();
         HandlePlacement();
         HandleDeletion();
+    }
+
+    private void Start()
+    {
+        if (buildingPrefabs.Count == 0)
+            Debug.LogWarning("No building prefabs assigned to BuildingSystem.");
+
+        foreach (var prefab in buildingPrefabs)
+        {
+            if (prefab.GetComponent<BuildablePrefab>() == null)
+                Debug.LogWarning($"Prefab '{prefab.name}' is missing a BuildablePrefab component.");
+        }
+
+
+        // Fix: find the components, then extract their GameObjects
+        BuildablePrefab[] placeObjects = FindObjectsByType<BuildablePrefab>(FindObjectsSortMode.None);
+        GameObject[] placeObjectGOs = System.Array.ConvertAll(placeObjects, bp => bp.gameObject);
+
+        // Optional: Add existing placed objects to the system (if any)
+        foreach (var obj in placeObjectGOs)
+        {
+            if (!placedObjects.Contains(obj))
+                placedObjects.Add(obj);
+        }
     }
 
     // ── Build Mode Toggle ──────────────────────────────────────────────────
@@ -158,6 +185,13 @@ public class BuildingSystem : MonoBehaviour
             Quaternion.Euler(0, currentRotation, 0)
         );
 
+        // Move to PlacedBuilding layer so the ground raycast ignores it
+        if (placedBuildingLayer.value > 0)
+        {
+            int layer = Mathf.RoundToInt(Mathf.Log(placedBuildingLayer.value, 2));
+            SetLayerRecursive(placed, layer);
+        }
+
         BuildablePrefab bp = placed.GetComponent<BuildablePrefab>();
         if (bp != null) bp.placedCells = cells;
 
@@ -165,6 +199,13 @@ public class BuildingSystem : MonoBehaviour
         placedObjects.Add(placed);
 
         Debug.Log($"Placed {buildingPrefabs[selectedIndex].name} at cell {rootCell}");
+    }
+
+    private void SetLayerRecursive(GameObject obj, int layer)
+    {
+        obj.layer = layer;
+        foreach (Transform child in obj.transform)
+            SetLayerRecursive(child.gameObject, layer);
     }
 
     // ── Deletion ───────────────────────────────────────────────────────────
@@ -175,7 +216,7 @@ public class BuildingSystem : MonoBehaviour
         Vector2 screenPos = mouse.position.ReadValue();
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
 
-        if (!Physics.Raycast(ray, out RaycastHit hit, 200f)) return;
+        if (!Physics.Raycast(ray, out RaycastHit hit, 200f, placedBuildingLayer)) return;
 
         BuildablePrefab bp = hit.collider.GetComponentInParent<BuildablePrefab>();
         if (bp == null) return;
