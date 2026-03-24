@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1158891109364192206, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
+      propertyPath: buildingName
+      value: ContainerCounter_MeatPattyUncooked
+      objectReference: {fileID: 0}
     - target: {fileID: 1333198370452424967, guid: 1e00684b858f7ee4b9582f071e8f357c, type: 3}
       propertyPath: kitchenObjectSO
       value: 

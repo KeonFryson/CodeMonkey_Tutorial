@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1476590955142127680, guid: f19ffdeb75764a14d84209b371325bd9, type: 3}
+      propertyPath: buildingName
+      value: ContainerCounter
+      objectReference: {fileID: 0}
     - target: {fileID: 7261727669485127794, guid: f19ffdeb75764a14d84209b371325bd9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

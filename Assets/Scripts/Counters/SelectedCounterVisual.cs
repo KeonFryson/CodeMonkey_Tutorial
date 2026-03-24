@@ -15,6 +15,8 @@ public class SelectedCounterVisual : MonoBehaviour
 
     private void Player_OnSelectedCounterChanged(object sender, Player.OnSelectedCounterChangedEventArgs e)
     {
+        if (baseCounter == null) return;
+
         if (e.selectedCounter == baseCounter)
         {
             foreach(GameObject visualGameObject in visualGameObjectArray)

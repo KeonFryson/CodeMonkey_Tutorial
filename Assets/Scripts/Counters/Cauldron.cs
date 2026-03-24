@@ -19,6 +19,7 @@ public class Cauldron : BaseCounter
     [SerializeField] private KitchenObjectSO emptyBottleSO; // Assign in Inspector
     [SerializeField] private KitchenObjectSO WaterBucketSO; // Assign in Inspector
     [SerializeField] private KitchenObjectSO EmptyBucketSO; // Assign in Inspector
+    [SerializeField] private KitchenObjectSO FailedPotion; // Assign in Inspector
     private State state;
 
     private void Start()
@@ -55,6 +56,8 @@ public class Cauldron : BaseCounter
                         else
                         {
                             Debug.Log("[Cauldron] No valid recipe found for current ingredients. Potion not created.");
+                            playerObject.DestroySelf();
+                            KitchenObject.SpawnKitchenObject(FailedPotion, player);
                             ClearCauldron();
                         }
                     }
@@ -81,9 +84,13 @@ public class Cauldron : BaseCounter
             else
             {
                 Debug.Log("[Cauldron] Player tried to interact with cauldron with empty hands. Nothing happens.");
-                KitchenObjectSO lastIngredient = currentIngredients[currentIngredients.Count - 1];
-                RemoveIngredient(lastIngredient);
-                KitchenObject.SpawnKitchenObject(lastIngredient, player);
+
+                if (currentIngredients.Count > 0)
+                {
+                    KitchenObjectSO lastIngredient = currentIngredients[currentIngredients.Count - 1];
+                    RemoveIngredient(lastIngredient);
+                    KitchenObject.SpawnKitchenObject(lastIngredient, player);
+                }
 
             }
         }

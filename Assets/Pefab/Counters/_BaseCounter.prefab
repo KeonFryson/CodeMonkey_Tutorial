@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7261727669485127794}
   - component: {fileID: 1684093819238668616}
+  - component: {fileID: 1476590955142127680}
   m_Layer: 3
   m_Name: _BaseCounter
   m_TagString: Untagged
@@ -85,3 +86,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1476590955142127680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855749955627929363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5788926b7c8068b4fa450e3bb7d14bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildablePrefab
+  buildingName: _BaseCounter
+  occupiedCellOffsets:
+  - {x: 0, y: 0, z: 0}
+  placedCells: []
